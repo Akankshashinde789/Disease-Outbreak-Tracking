@@ -1,0 +1,16 @@
+[package]
+name = "hello-world"
+version = "1.0.0"
+authors = []
+
+[addresses]
+MyModule="0x829a5232c5a7f8fa2ae552efcfa4287ac0c04af7369915e82bc2c231bfe30fc9"
+
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-framework.git"
+rev = "mainnet"
+subdir = "aptos-framework"
+
+[dev-dependencies]
