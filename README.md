@@ -134,6 +134,8 @@ Would you like help creating a frontend or deployment guide next?
 
 
 Attach
+<img width="548" height="266" alt="image" src="https://github.com/user-attachments/assets/239681c5-1c24-4277-9458-6879ca8d3edf" />
+
 
 Search
 
