@@ -1,89 +1,4 @@
-Skip to content
-You said:
-Create me a Readme file for the given code the Readme file contain the following things
-1. Title
-2. Descripition
-3. Vision
-4. Future Scope
-5. Contract Address
-ChatGPT said:
-Sure! Please provide the code or project you're referring to, so I can generate a relevant and accurate README.md file including:
 
-Title
-
-Description
-
-Vision
-
-Future Scope
-
-Contract Address
-
-Once you share the code or at least describe the project's functionality and purpose (e.g., is it a smart contract, DApp, etc.?), I’ll create the file for you.
-
-You said:
-vmodule MyModule::DiseaseOutbreakTracking { 
-    use aptos_framework::signer;
-    use aptos_framework::timestamp;
-
-    /// Struct representing a disease outbreak report.
-    struct OutbreakReport has store, key {
-        disease_name: vector<u8>,     // Name of the disease
-        location: vector<u8>,         // Location of the outbreak
-        confirmed_cases: u64,         // Number of confirmed cases
-        suspected_cases: u64,         // Number of suspected cases
-        deaths: u64,                  // Number of deaths
-        report_timestamp: u64,        // Timestamp when reported
-        last_updated: u64,            // Timestamp of last update
-        is_active: bool,              // Whether outbreak is still active
-    }
-
-    /// Function to report a new disease outbreak.
-    /// Can only be called by health authorities (account owners).
-    public fun report_outbreak(
-        authority: &signer, 
-        disease_name: vector<u8>,
-        location: vector<u8>,
-        confirmed_cases: u64,
-        suspected_cases: u64,
-        deaths: u64
-    ) {
-        let current_time = timestamp::now_seconds();
-        let outbreak_report = OutbreakReport {
-            disease_name,
-            location,
-            confirmed_cases,
-            suspected_cases,
-            deaths,
-            report_timestamp: current_time,
-            last_updated: current_time,
-            is_active: true,
-        };
-        move_to(authority, outbreak_report);
-    }
-
-    /// Function to update an existing outbreak report with new data.
-    /// Updates case numbers and marks outbreak status.
-    public fun update_outbreak(
-        authority: &signer,
-        new_confirmed_cases: u64,
-        new_suspected_cases: u64,
-        new_deaths: u64,
-        is_still_active: bool
-    ) acquires OutbreakReport {
-        let authority_address = signer::address_of(authority);
-        let outbreak_report = borrow_global_mut<OutbreakReport>(authority_address);
-        
-        // Update the outbreak data
-        outbreak_report.confirmed_cases = new_confirmed_cases;
-        outbreak_report.suspected_cases = new_suspected_cases;
-        outbreak_report.deaths = new_deaths;
-        outbreak_report.is_active = is_still_active;
-        outbreak_report.last_updated = timestamp::now_seconds();
-    }
-}
-ChatGPT said:
-Here's a README.md file tailored for your Disease Outbreak Tracking module written in Move. It includes all the sections you requested:
 
 # 🦠 Disease Outbreak Tracking on Aptos Blockchain
 
@@ -116,6 +31,9 @@ To build a **decentralized, trustworthy**, and **real-time disease surveillance 
 ---
 
 ## 📜 Contract Address
+devnet
+<img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/cb16f006-f272-4f82-9883-bc6f38eda560" />
+Transaction hash="0xe2afc6a132c226ed294e3cd3032d5f1e1822db6835a80a4044037d1c173915d6"
 
 <To be updated after deployment> ```
 Replace the above placeholder with the actual contract address after deploying the module to the Aptos blockchain.
@@ -134,7 +52,7 @@ Would you like help creating a frontend or deployment guide next?
 
 
 Attach
-<img width="548" height="266" alt="image" src="https://github.com/user-attachments/assets/239681c5-1c24-4277-9458-6879ca8d3edf" />
+
 
 
 Search
